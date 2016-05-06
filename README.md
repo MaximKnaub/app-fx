@@ -1,2 +1,2 @@
 # AppFX
-Test
+AppFX is a small DI Framework for JavaFX
