@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import javafx.geometry.*?>
+<?import java.net.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox fx:id="root" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.mknaub.applicationfx.ctrl.SceneDialogWrapperCtrl">
+   <children>
+      <HBox fx:id="topBox" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="appfx-scene-dialog-header">
+         <children>
+            <HBox fx:id="dlgHeaderContainer" alignment="CENTER" maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS">
+               <children>
+                  <Label fx:id="titleLbl" text="Dialog title" />
+               </children>
+               <padding>
+                  <Insets left="5.0" right="5.0" />
+               </padding>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </HBox>
+            <Button fx:id="closeBtn" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onClose">
+               <graphic>
+                  <SVGPath content="M18.984 6.422l-5.578 5.578 5.578 5.578-1.406 1.406-5.578-5.578-5.578 5.578-1.406-1.406 5.578-5.578-5.578-5.578 1.406-1.406 5.578 5.578 5.578-5.578z" />
+               </graphic>
+            </Button>
+         </children>
+      </HBox>
+      <BorderPane fx:id="dlgContent" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="appfx-scene-dialog-content" VBox.vgrow="ALWAYS" />
+   </children>
+   <styleClass>
+      <String fx:value="scene" />
+      <String fx:value="appfx-container" />
+      <String fx:value="appfx-scene-dialog" />
+   </styleClass>
+   <stylesheets>
+      <URL value="@../style/css/appfx-bright-theme.css" />
+      <URL value="@../style/css/default-style.css" />
+   </stylesheets>
+</VBox>

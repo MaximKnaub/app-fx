@@ -1,0 +1,9 @@
+/* Action Button */
+
+.action-button {}
+
+.action-button .button {
+    -fx-base: DODGERBLUE;
+    -fx-background-radius: 9999px;
+}
+

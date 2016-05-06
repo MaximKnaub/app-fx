@@ -1,0 +1,23 @@
+/* 
+    Created on : 06.08.2015, 15:39:12
+    Author     : maka
+*/
+
+.scene{
+    -appfx-container: #34495e;
+
+    -container: #ececec;
+    -accent: #3e779d;
+
+    -contrast-container: #bcbcbc;
+
+    -error: #FF4D4D;
+    -warn: #FFC44D;
+    -info: derive(#65a9d7, 25%);
+}
+
+
+
+
+
+

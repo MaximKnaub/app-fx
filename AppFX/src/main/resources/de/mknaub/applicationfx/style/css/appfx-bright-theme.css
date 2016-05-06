@@ -1,0 +1,51 @@
+/* 
+    Created on : 06.08.2015, 15:38:57
+    Author     : maka
+    var prefix : -appfx-{varName}
+*/
+
+/* color scheme
+ *------------------------------------------------------------------------------
+ * Created on : 06.08.2015, 15:38:57
+ * Author     : maka
+ * var prefix : -appfx-{varName}
+ * ---
+ * #027fd1, #258cd1, #3498db (blue)
+ * #34495e (black)
+ * font colors: dark #34495e, bright #f3f3f3
+ *----------------------------------------------------------------------------*/
+
+.root{
+}
+
+.scene{
+    -appfx-container: #EFF3F4;
+    /*TODO: var name */
+    -appfx-color: #232332;
+    -appfx-primary-swatch: #3498db; /*rgb(52, 152, 219)*/
+    -appfx-primary-ctrl-swatch: -appfx-container;
+
+    -appfx-text-fill: #ecf0f1;
+    -appfx-text-contrast-fill: #232332;
+
+    /*overrite*/
+    -fx-accent: -appfx-primary-swatch;
+    /*-fx-text-base-color: -appfx-text-contrast-fill;*/
+    -fx-focused-text-base-color: -appfx-text-fill;
+
+    -fx-text-base-color: -appfx-text-contrast-fill;
+
+    /* old stuff*/
+    -container: #ececec;
+    -accent: #3e779d;
+
+    -contrast-container: #bcbcbc;
+
+    -error: #FF4D4D;
+    -warn: #FFC44D;
+    -info: derive(#65a9d7, 25%);
+}
+
+/* TODO:
+
+*/
