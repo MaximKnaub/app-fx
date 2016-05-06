@@ -1,4 +1,4 @@
-package de.mknaub.appfxdemo;
+package de.mknaub.test;
 
 import java.net.URL;
 import java.util.ResourceBundle;

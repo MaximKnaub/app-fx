@@ -1,17 +1,22 @@
-package de.mknaub.appfxdemo;
+package de.mknaub.test;
 
-import de.mknaub.appfx.AppFx;
-import de.mknaub.appfxdemo.ctrl.MainCtrl;
+import javafx.application.Application;
+import static javafx.application.Application.launch;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import static javafx.application.Application.launch;
-import javafx.scene.Parent;
 
-public class MainApp extends AppFx {
+
+public class MainApp extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        Scene scene = new Scene((Parent) getController(MainCtrl.class).getView());
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/Scene.fxml"));
+        
+        Scene scene = new Scene(root);
+        scene.getStylesheets().add("/styles/Styles.css");
+        
         stage.setTitle("JavaFX and Maven");
         stage.setScene(scene);
         stage.show();

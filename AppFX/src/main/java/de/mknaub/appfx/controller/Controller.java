@@ -1,6 +1,6 @@
 package de.mknaub.applicationfx.controller;
 
-import de.mknaub.appfx.application.ApplicationFX;
+import de.mknaub.appfx.AppFx;
 import de.mknaub.applicationfx.services.AbstractService;
 import de.mknaub.appfx.utils.Scope;
 import javafx.beans.property.ObjectProperty;
@@ -21,9 +21,9 @@ public interface Controller {
 
     void setView(Node node);
 
-    ApplicationFX getApplication();
+    AppFx getApplication();
 
-    void setApplication(ApplicationFX application);
+    void setApplication(AppFx application);
 
     /**
      * Gibt die Instanz der übergebenen Controller Klasse zurück<br> <br>

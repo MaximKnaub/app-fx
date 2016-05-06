@@ -1,6 +1,6 @@
 package de.mknaub.applicationfx.services;
 
-import de.mknaub.appfx.application.ApplicationFX;
+import de.mknaub.appfx.AppFx;
 import de.mknaub.appfx.utils.Scope;
 
 /**
@@ -10,9 +10,9 @@ import de.mknaub.appfx.utils.Scope;
  */
 public interface Service {
 
-    ApplicationFX getApplication();
+    AppFx getApplication();
 
-    void setApplication(ApplicationFX application);
+    void setApplication(AppFx application);
 
     Scope getScope();
 
