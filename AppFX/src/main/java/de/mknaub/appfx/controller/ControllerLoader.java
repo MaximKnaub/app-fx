@@ -1,4 +1,4 @@
-package de.mknaub.applicationfx.controller;
+package de.mknaub.appfx.controller;
 
 import de.mknaub.appfx.AppFx;
 import java.io.IOException;

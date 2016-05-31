@@ -1,7 +1,7 @@
-package de.mknaub.applicationfx.controller;
+package de.mknaub.appfx.controller;
 
 import de.mknaub.appfx.AppFx;
-import de.mknaub.applicationfx.services.AbstractService;
+import de.mknaub.appfx.services.AbstractService;
 import de.mknaub.appfx.utils.Scope;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;

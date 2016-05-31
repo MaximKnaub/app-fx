@@ -1,7 +1,7 @@
-package de.mknaub.applicationfx.services;
+package de.mknaub.appfx.services;
 
 import de.mknaub.appfx.AppFx;
-import de.mknaub.applicationfx.controller.AbstractController;
+import de.mknaub.appfx.controller.AbstractController;
 import de.mknaub.appfx.utils.Scope;
 
 /**

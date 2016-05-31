@@ -1,4 +1,4 @@
-package de.mknaub.applicationfx.services;
+package de.mknaub.appfx.services;
 
 import de.mknaub.appfx.AppFx;
 import de.mknaub.appfx.utils.Scope;
