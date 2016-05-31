@@ -149,7 +149,7 @@
         </dependency>
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>AppFX</artifactId>
+            <artifactId>app-fx</artifactId>
             <version>${project.version}</version>
         </dependency>
     </dependencies>
