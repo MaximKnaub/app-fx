@@ -9,10 +9,6 @@
     <name>AppFX</name>
     <description>AppFX is a minimalistic JavaFX MVC framework based on Convention over Configuration and Dependency Injection</description>
     
-    <scm>
-        <url>https://github.com/MaximKnaub/AppFX.git</url>
-    </scm>
-    
     <licenses>
         <license>
             <name>Apache License, Version 2.0</name>
