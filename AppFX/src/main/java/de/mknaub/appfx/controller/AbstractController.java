@@ -1,6 +1,6 @@
 package de.mknaub.applicationfx.controller;
 
-import de.mknaub.appfx.application.ApplicationFX;
+import de.mknaub.appfx.AppFx;
 import de.mknaub.applicationfx.services.AbstractService;
 import de.mknaub.appfx.utils.Scope;
 import javafx.beans.property.ObjectProperty;
@@ -22,7 +22,7 @@ import javafx.scene.Node;
  */
 public abstract class AbstractController implements Controller {
 
-    protected ApplicationFX application;
+    protected AppFx application;
     private final ObjectProperty<Node> viewProperty = new SimpleObjectProperty<>(null);
     private Scope scope;
 
@@ -31,11 +31,11 @@ public abstract class AbstractController implements Controller {
      *
      * @return
      */
-    @Override public ApplicationFX getApplication() {
+    @Override public AppFx getApplication() {
         return application;
     }
 
-    @Override public void setApplication(ApplicationFX application) {
+    @Override public void setApplication(AppFx application) {
         this.application = application;
     }
 

@@ -1,4 +1,4 @@
-package de.mknaub.appfx.application;
+package de.mknaub.appfx;
 
 import de.mknaub.appfx.annotations.Controller;
 import de.mknaub.appfx.annotations.Link;
@@ -18,6 +18,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.application.Application;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
@@ -33,17 +34,23 @@ import javax.annotation.PostConstruct;
  * <br> Diese Klasse sollte auf keinen Fall modifiziert werden
  *
  */
-public class ApplicationFX {
+public abstract class AppFx extends Application {
 
+    public AppFx() {
+    }
+
+    abstract public void start(Stage stage) throws Exception;
+
+//    --> old
     protected final Map<Class<? extends Object>, Object> controllers = new HashMap<>();
     private final Map<Class<? extends Object>, Object> services = new HashMap<>();
-    private final Stage primaryStage;
+    private Stage primaryStage;
     @Deprecated
     private List<Class<?>> classes;
     private final AnnotationParser parser = AnnotationParser.getInstance(this, controllers, services);
     //
 
-    public ApplicationFX(final Stage stage, final Class<? extends AbstractController> mainCtrl) {
+    public AppFx(final Stage stage, final Class<? extends AbstractController> mainCtrl) {
         this.primaryStage = stage;
         this.primaryStage.setScene(new Scene((Parent) new Pane(), 1024, 768));
 
@@ -147,7 +154,7 @@ public class ApplicationFX {
             parseInnerClass(service);
             invokePostConstruct(service);
         } catch (InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException ex) {
-            Logger.getLogger(ApplicationFX.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AppFx.class.getName()).log(Level.SEVERE, null, ex);
             // TODO log
         }
         return (C) service;
@@ -214,7 +221,7 @@ public class ApplicationFX {
                     method.invoke(instance);
                     method.setAccessible(wasAccessible);
                 } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException ex) {
-                    Logger.getLogger(ApplicationFX.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(AppFx.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
         });
