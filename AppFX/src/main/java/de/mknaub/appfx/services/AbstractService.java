@@ -1,7 +1,7 @@
-package de.mknaub.applicationfx.services;
+package de.mknaub.appfx.services;
 
-import de.mknaub.appfx.application.ApplicationFX;
-import de.mknaub.applicationfx.controller.AbstractController;
+import de.mknaub.appfx.AppFx;
+import de.mknaub.appfx.controller.AbstractController;
 import de.mknaub.appfx.utils.Scope;
 
 /**
@@ -11,7 +11,7 @@ import de.mknaub.appfx.utils.Scope;
  */
 public class AbstractService implements Service {
 
-    protected ApplicationFX application;
+    protected AppFx application;
     private Scope scope;
 
     /**
@@ -20,12 +20,12 @@ public class AbstractService implements Service {
      * @return
      */
     @Override
-    public ApplicationFX getApplication() {
+    public AppFx getApplication() {
         return application;
     }
 
     @Override
-    public void setApplication(ApplicationFX application) {
+    public void setApplication(AppFx application) {
         this.application = application;
     }
 

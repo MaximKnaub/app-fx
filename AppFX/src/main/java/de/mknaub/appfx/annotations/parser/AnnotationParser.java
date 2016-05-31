@@ -3,10 +3,10 @@ package de.mknaub.appfx.annotations.parser;
 import de.mknaub.appfx.annotations.Controller;
 import de.mknaub.appfx.annotations.Link;
 import de.mknaub.appfx.annotations.Service;
-import de.mknaub.appfx.application.ApplicationFX;
-import de.mknaub.applicationfx.controller.AbstractController;
-import de.mknaub.applicationfx.controller.ControllerLoader;
-import de.mknaub.applicationfx.services.AbstractService;
+import de.mknaub.appfx.AppFx;
+import de.mknaub.appfx.controller.AbstractController;
+import de.mknaub.appfx.controller.ControllerLoader;
+import de.mknaub.appfx.services.AbstractService;
 import de.mknaub.appfx.utils.Scope;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Constructor;
@@ -27,11 +27,11 @@ import java.util.logging.Logger;
 public class AnnotationParser {
 
     private static AnnotationParser instance;
-    private static ApplicationFX application;
+    private static AppFx application;
     private static Map<Class<? extends Object>, Object> controllers = new HashMap<>();
     private static Map<Class<? extends Object>, Object> services = new HashMap<>();
 
-    public static AnnotationParser getInstance(ApplicationFX applicationFX, Map<Class<? extends Object>, Object> controllers, Map<Class<? extends Object>, Object> services) {
+    public static AnnotationParser getInstance(AppFx applicationFX, Map<Class<? extends Object>, Object> controllers, Map<Class<? extends Object>, Object> services) {
         if (instance != null) {
             return instance;
         } else {

@@ -1,6 +1,6 @@
-package de.mknaub.applicationfx.controller;
+package de.mknaub.appfx.controller;
 
-import de.mknaub.appfx.application.ApplicationFX;
+import de.mknaub.appfx.AppFx;
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.annotation.Annotation;
@@ -29,7 +29,7 @@ public class ControllerLoader {
      * @param applicationFX
      * @return Controller
      */
-    public static Controller loadController(String url, String resourceBundle, ApplicationFX applicationFX) {
+    public static Controller loadController(String url, String resourceBundle, AppFx applicationFX) {
         try {
             try (InputStream fxmlStream = ControllerLoader.class.getResourceAsStream(url)) {
                 FXMLLoader loader = new FXMLLoader();
