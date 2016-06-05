@@ -1,7 +1,7 @@
 package de.mknaub.appfx.services;
 
 import de.mknaub.appfx.AppFx;
-import de.mknaub.appfx.utils.Scope;
+import de.mknaub.appfx.annotations.Scope;
 
 /**
  *
