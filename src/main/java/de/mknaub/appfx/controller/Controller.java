@@ -2,7 +2,7 @@ package de.mknaub.appfx.controller;
 
 import de.mknaub.appfx.AppFx;
 import de.mknaub.appfx.services.AbstractService;
-import de.mknaub.appfx.utils.Scope;
+import de.mknaub.appfx.annotations.Scope;
 import javafx.beans.property.ObjectProperty;
 import javafx.scene.Node;
 

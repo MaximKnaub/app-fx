@@ -3,27 +3,23 @@ package de.mknaub.appfx;
 import de.mknaub.appfx.annotations.Controller;
 import de.mknaub.appfx.annotations.Link;
 import de.mknaub.appfx.annotations.Service;
-import de.mknaub.appfx.annotations.parser.AnnotationParser;
 import de.mknaub.appfx.controller.AbstractController;
 import de.mknaub.appfx.controller.ControllerLoader;
 import de.mknaub.appfx.services.AbstractService;
-import de.mknaub.appfx.utils.Scope;
-import static de.mknaub.appfx.utils.Scope.SINGLETON;
+import de.mknaub.appfx.annotations.Scope;
+import static de.mknaub.appfx.annotations.Scope.SINGLETON;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Arrays;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.application.Application;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javax.annotation.PostConstruct;
+import lombok.Getter;
 
 /**
  * @author maka
@@ -36,32 +32,15 @@ import javax.annotation.PostConstruct;
  */
 public abstract class AppFx extends Application {
 
+    @Getter private Stage primaryStage;
+    protected final Map<Class<? extends Object>, Object> controllers = new HashMap<>();
+    private final Map<Class<? extends Object>, Object> services = new HashMap<>();
+
     public AppFx() {
     }
 
+    @Override
     abstract public void start(Stage stage) throws Exception;
-
-//    --> old
-    protected final Map<Class<? extends Object>, Object> controllers = new HashMap<>();
-    private final Map<Class<? extends Object>, Object> services = new HashMap<>();
-    private Stage primaryStage;
-    @Deprecated
-    private List<Class<?>> classes;
-    private final AnnotationParser parser = AnnotationParser.getInstance(this, controllers, services);
-    //
-
-    public AppFx(final Stage stage, final Class<? extends AbstractController> mainCtrl) {
-        this.primaryStage = stage;
-        this.primaryStage.setScene(new Scene((Parent) new Pane(), 1024, 768));
-
-        primaryStage.getScene().getStylesheets().add("/de/mknaub/applicationfx/style/css/appfx-bright-theme.css");
-        primaryStage.getScene().getStylesheets().add("/de/mknaub/applicationfx/style/css/default-style.css");
-        primaryStage.getScene().getStylesheets().add("/de/mknaub/applicationfx/control/control.css");
-    }
-
-    public Stage getPrimaryStage() {
-        return primaryStage;
-    }
 
     /**
      * Gibt die Instanz der übergebenen Controller Klasse zurück<br> <br>
@@ -199,7 +178,7 @@ public abstract class AppFx extends Application {
         }
     }
 
-    public void invokePostConstruct(Object instance) {
+    private void invokePostConstruct(Object instance) {
         if (instanceOf(instance.getClass(), AbstractController.class) || instanceOf(instance.getClass(), AbstractService.class)) {
             invokePostConstruct(instance, instance.getClass().getDeclaredMethods());
             Class<? extends Object> superclass = instance.getClass().getSuperclass();

@@ -1,4 +1,4 @@
-package de.mknaub.appfx.utils;
+package de.mknaub.appfx.annotations;
 
 /**
  *

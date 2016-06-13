@@ -1,6 +1,5 @@
 package de.mknaub.appfx.annotations;
 
-import de.mknaub.appfx.utils.Scope;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
