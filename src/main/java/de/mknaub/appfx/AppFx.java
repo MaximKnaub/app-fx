@@ -39,8 +39,28 @@ public abstract class AppFx extends Application {
     public AppFx() {
     }
 
+    /**
+     * Stores the primary stage, so it is available via {@link #getPrimaryStage()},
+     * and delegates to {@link #startApplication(Stage)}. Applications override
+     * {@link #startApplication(Stage)} instead of this method.
+     *
+     * @param stage the primary stage created by the JavaFX runtime
+     * @throws Exception if {@link #startApplication(Stage)} fails
+     */
     @Override
-    abstract public void start(Stage stage) throws Exception;
+    public final void start(Stage stage) throws Exception {
+        this.primaryStage = stage;
+        startApplication(stage);
+    }
+
+    /**
+     * Entry point of the application. Called by {@link #start(Stage)} after the
+     * primary stage has been stored.
+     *
+     * @param stage the primary stage, also available via {@link #getPrimaryStage()}
+     * @throws Exception if the application fails to start
+     */
+    protected abstract void startApplication(Stage stage) throws Exception;
 
     /**
      * Gibt die Instanz der übergebenen Controller Klasse zurück<br> <br>
@@ -158,7 +178,7 @@ public abstract class AppFx extends Application {
         while (instanceOf(superclass, AbstractController.class)
                 || instanceOf(superclass, AbstractService.class)) {
             check(instance, superclass.getDeclaredFields());
-            superclass = superclass.getClass().getSuperclass();
+            superclass = superclass.getSuperclass();
         }
     }
 
@@ -183,7 +203,7 @@ public abstract class AppFx extends Application {
             while (instanceOf(superclass, AbstractController.class)
                     || instanceOf(superclass, AbstractService.class)) {
                 invokePostConstruct(instance, superclass.getDeclaredMethods());
-                superclass = superclass.getClass().getSuperclass();
+                superclass = superclass.getSuperclass();
             }
         }
     }
