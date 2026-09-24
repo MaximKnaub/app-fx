@@ -166,14 +166,12 @@ public abstract class AppFx extends Application {
         for (Field field : fields) {
             Link link = field.getAnnotation(Link.class);
             if (link != null) {
-                boolean wasAccesible = field.isAccessible();
                 field.setAccessible(true);
                 if (instanceOf(field.getType(), AbstractController.class)) {
                     field.set(instance, getController((Class<AbstractController>) field.getType()));
                 } else if (instanceOf(field.getType(), AbstractService.class)) {
                     field.set(instance, getService((Class<AbstractService>) field.getType()));
                 }
-                field.setAccessible(wasAccesible);
             }
         }
     }
@@ -195,10 +193,8 @@ public abstract class AppFx extends Application {
             PostConstruct annotation = method.getAnnotation(PostConstruct.class);
             if (annotation != null) {
                 try {
-                    boolean wasAccessible = method.isAccessible();
                     method.setAccessible(true);
                     method.invoke(instance);
-                    method.setAccessible(wasAccessible);
                 } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException ex) {
                     Logger.getLogger(AppFx.class.getName()).log(Level.SEVERE, null, ex);
                 }
